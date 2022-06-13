@@ -2,6 +2,7 @@
 #!/bin/bash
 n=rzc
 echo $n
+##to capture values passed to the script
 echo $1
 echo $2
 echo $3
