@@ -6,7 +6,8 @@ echo $n
 echo $1
 echo $2
 echo $3
-read -p 'enter your name" ' NAME
+##prompt and capture value into variable(s)
+read -p 'enter your name" ' FIRSTNAME LASTNAME
 echo your name is $NAME
 
 if [ 10 -lt 13 ] 
