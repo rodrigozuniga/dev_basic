@@ -5,6 +5,8 @@ set mouse=a         : enable mouse click
 diffput             : apply difference to other window
 diffget             : apply difference from other window
 [c,]c               : jump to next/previous difference
+!./%                : run current vim content
+row_select w !bash  : run selection
 
 SHELL:
 #!/bin/bash         : shabang for bash shell
