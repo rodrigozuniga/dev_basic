@@ -1,0 +1,244 @@
+##BASIC MAC 
+SHELL COMMANDS:
+#!/bin/bash
+
+#NETWORK:
+#get single file from github raw
+curl https://raw.githubusercontent.com/rodrigozuniga/firstRProject/origin/first_script.R >first_script.R
+
+scp <file><user>@<host>:/remote/path
+
+arp -a : ip addresses on the network
+who
+#HELP: - not always consistent -
+man ls
+ps --help
+
+#HISTORY:
+history 100: list last 100 commands
+<r>
+~/.bash_history
+~/.zsh_history
+cat ~/.zsh_history|grep brew
+
+#CLI EDITING:
+<a> :start of line
+<e> :end of line
+<u> :delete line
+<U> :erase to end of line
+<K> :erase to start of line
+
+opt + -> :jump to next word 
+opt + <- :jump to previous word
+
+#SPLIT SCREEN:
+run command tmux
+1st)<b>
+2nd)% or " or o for vertical,horizontal or switch window 
+view menu:
+<d>
+shift<d>
+
+
+#DIRECTORIES:
+cd -  :go back to previous directory
+mkdir -p dir/dir1/dir2/dir3
+rmdir :remove directory
+rm -r :recursive
+cp -Rv dir newdir :recursive and verbose
+chown user:group filename: change ownership
+chmod 777 filename
+du -h foldername
+
+#PROCESS
+ps
+kill xxxx
+top
+top -o rsize
+<d>: exit current shell
+time ls -al: run and time process
+
+#FILE TYPE
+file filename
+
+#FIND:
+find -H trends*
+find . -maxdepth 2 -iname 'trends*'
+find . 'trends*' -prune :avoid going into sub-directories files
+locate filename: requires to first create a database/table 
+
+#WC:
+wc -lwc filename
+uniq diff1 :returns unique rows
+uniq diff1 :returns unique rows and count
+
+#LIST:
+ls -R :recursive to subdirectories
+ls -a
+ls -l
+ls -S :sort by size
+ls -t :sort by time modified
+ls -F :add / to files
+ls -C
+ls -G :color coded
+
+#TYPE:
+echo ${(t)aa}
+
+#VARIABLES ASSIGNMENT:
+n=rzc
+`read -r a1 b1 <<< "1 2"`     
+#prompt and capture IIivalue into variable(s)
+read -p 'enter your name" ' FIRSTNAME LASTNAME
+echo your name is $FIRSTNAME
+#values passed to script
+echo $1
+echo $2
+echo $3
+#remove varible
+unset varname
+export: list of defined variables
+export a=1 : set variable for every sub process to be launched
+
+#ARRAY:
+unix[1]='Red Hat'
+unix[2]='Ubuntu'
+unix[3]='Centos'
+unix[4]='Mint'
+echo ${(t)unix}
+#associative array
+declare -A userinfo
+echo ${(t)userinfo}
+userinfo["first name"]='Rodrigo'
+userinfo["last name"]='Zuniga'
+userinfo["age"]=17
+echo $#userinfo : number of elements
+echo $userinfo[@]
+declare -A user
+user=(fist_nameRodrigo last_name Zuniga age 17)
+echo ${(k)user}  : get keys
+echo ${(kv)user} : get keys and values 
+
+#DATETIME:
+date +"%Y-%m-%d"
+date +"%Y-%m-%d %H:%M:%S %Z"
+
+#IF
+if [ 10 -lt 13 ] 
+then    echo 10 is less than 13
+fi
+
+#RANGE or SEQUENCE
+seq 10
+
+#LOOP
+for i in 'one','two','three','four'
+do
+    echo $i
+done
+for j in `seq 0 2 50 `
+do 
+    echo $j
+done-
+for (i,j) in [{A..Z},{a..z}]
+do
+    echo $i$j
+done
+
+#SOLVE FIRST:
+a='hello'
+b='there'
+echo $a $b
+echo the time is `date`
+
+#PROCESS:
+ps
+kill xxxx
+<z>+bg:put process in background
+fg ps_id 
+file.sh & :run in background
+top -n 5: info in top 5 ps in cpu usage-n 
+
+#WC:
+wc -lwc filename
+
+#GREP:
+grep -v staff cols: exclude pattern
+grep -wv staff cols : exclude but only as complete words
+
+#SORT:
+sort sortfile
+sort --reverse sortfile
+sort --field-separator="\t" cols --key=6|head
+
+#RANDOM:
+brew install coreutils: shuf becomes gshuf
+gshuf -i 1-10: shuffle complete range
+gshuf -i 1-10 -n 1: shuffle but returns only one number
+
+#SELECT COLUMNS:
+awk -F"  " '{print $3}' cols
+awk '/rwxrwxrwx/ {print $1}' cols :select column 1 equal to rwxrwxrwx (awk options 'pattern {action}') 
+cut -d " " -f 1 cols		  :select field 1
+cut -c 1-11 cols 		  :select columns 1 to 11
+
+#SUM COLUMN:
+awk '{print $5}' cols|awk '{total=total+$1}END{print total}'
+
+#TEXT:
+#substitution
+cut -d " " -f 1 cols|sed 's/r/x/'
+#substring
+str="Rodrigo Zuniga"
+echo ${str:0:7}
+echo $str|cut -c 1-7
+#translate:
+cat cols|tr ' ' '\n': one line for each word in the file
+
+#PRINTF
+printf "%7.3f\n" "213"
+printf "%7.3d\n" 213 112 123
+a=100.2345
+printf "%7.2f\n" $a
+
+#DIFF:
+diff diff1 diff2
+diff -u diff1 diff2
+diff -c diff1 diff2
+
+#FLOW:
+cat diff1|tee >(wc)|grep lin
+
+#COMPRESSION:
+zip newfilename filename
+zip newfoldername foldername
+#password protected:
+zip -re dev_basic_compress_pwd dev_basic
+#create multiple files of size 1g
+zip -s 1g -r downloads_compress Downloads
+
+#SPREADSHEET:
+visidata filename
+
+#SQL
+brew install q
+q "select count(*) from cols"
+q "select sum(c5) from cols"
+q "select c5,count(*) from cols where c5>10000 group by 1"
+q "select c4,count(*) over (partition by c4 order by c4) from cols"
+
+#SQLITE:
+.open chinook.db
+.tables
+.mode csv
+.import city.csv cities
+pragma table_info('invoices')
+.header on
+.mode column
+<d> :quit
+
+#MYSQL:
+brew install mysql 
+brew start process mysql
+mysql -uroot
+source ./mysqlsampledatabase.sql : create database
