@@ -39,7 +39,6 @@ view menu:
 <d>
 shift<d>
 
-
 #DIRECTORIES:
 cd -  :go back to previous directory
 mkdir -p dir/dir1/dir2/dir3
@@ -57,6 +56,8 @@ top
 top -o rsize
 <d>: exit current shell
 time ls -al: run and time process
+#check port association:
+lsof -i:8080
 
 #FILE TYPE
 file filename
@@ -67,10 +68,13 @@ find . -maxdepth 2 -iname 'trends*'
 find . 'trends*' -prune :avoid going into sub-directories files
 locate filename: requires to first create a database/table 
 
+#OPERATORS:
+cat <<< "hello there $x" :pass string but evaluates first
+
 #WC:
 wc -lwc filename
 uniq diff1 :returns unique rows
-uniq diff1 :returns unique rows and count
+uniq -c diff1 :returns unique rows and count
 
 #LIST:
 ls -R :recursive to subdirectories
@@ -100,6 +104,16 @@ unset varname
 export: list of defined variables
 export a=1 : set variable for every sub process to be launched
 
+#FUNCTION:
+#!/bin/bash
+Hello () {
+ echo "hello World"
+ echo "hello $1"
+}
+#to run function with variable:
+Hello Rodrigo
+
+
 #ARRAY:
 unix[1]='Red Hat'
 unix[2]='Ubuntu'
@@ -119,9 +133,22 @@ user=(fist_nameRodrigo last_name Zuniga age 17)
 echo ${(k)user}  : get keys
 echo ${(kv)user} : get keys and values 
 
-#DATETIME:
+#DATETIME/UNIXDATETIME:
+date +%T
+date +%Y
+date +%m
+date +%b
+date +%B
+date +%d
+date +%S
+date +%Z
+date +%z
+gdate +%S.%N (after installing coreutils with brew)
+
 date +"%Y-%m-%d"
 date +"%Y-%m-%d %H:%M:%S %Z"
+date +%s : current epoch time
+date -r 1657658543 : convert epoch to datetime:wq
 
 #IF
 if [ 10 -lt 13 ] 
@@ -159,6 +186,10 @@ fg ps_id
 file.sh & :run in background
 top -n 5: info in top 5 ps in cpu usage-n 
 
+#CALCULATION:
+echo 6+7|bc
+expr 6 + 7
+
 #WC:
 wc -lwc filename
 
@@ -194,8 +225,6 @@ echo ${str:0:7}
 echo $str|cut -c 1-7
 #translate:
 cat cols|tr ' ' '\n': one line for each word in the file
-
-#PRINTF
 printf "%7.3f\n" "213"
 printf "%7.3d\n" 213 112 123
 a=100.2345
@@ -216,6 +245,10 @@ zip newfoldername foldername
 zip -re dev_basic_compress_pwd dev_basic
 #create multiple files of size 1g
 zip -s 1g -r downloads_compress Downloads
+
+#CURL:
+curl http://example.com --output my.file --silent
+
 
 #SPREADSHEET:
 visidata filename

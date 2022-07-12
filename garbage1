@@ -1,0 +1,2 @@
+use classicmodels;
+select * from customers limit 5;
