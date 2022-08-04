@@ -1,0 +1,44 @@
+Jupyter
+%who    : defined variables
+%who_ls : array with variable names
+%whos   : variables names, types and values
+%pwd
+%ls
+%ls?
+%cd ..
+%precision
+%lsmagic: list of magic commands 
+
+##time cell execution:
+%time
+
+##Create, Store and Recall a Macro:
+%macro -q <macro_name> <cell_number>
+%store __nppd
+%store -r __nppd: recall macro
+
+%run: run external file
+%load: add code from external file
+
+%clear: clear cell output
+
+##Pass commands to OS:
+%system ls
+%sx ls
+!ls
+!!ls
+
+%alias lsa "ls"
+%quickref
+%alias?
+
+select+shift+tab: get command description
+ctrl+shift+-: split cell at the cursor location
+esc+f: find and replace on cells but not on output
+; :suppress output
+
+%%html : render code as html
+%%ruby : call different kernel
+%%perl : call different kernel
+
+conda install -c damianavila82 rise: for presentations
