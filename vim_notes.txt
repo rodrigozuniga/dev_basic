@@ -33,7 +33,7 @@ tabedit filename    : new tab
 set mouse=a         : enable mouse click
 set number          : number lines
 set nonumber	    : unset line numbers
-set spell spelllang = en_us: set spelling corrector to spanish
+set spell spelllang = en_us: set spelling corrector to english 
 set ignorecase	    :ignore case
 
 esc: help number    : get help on number or other
