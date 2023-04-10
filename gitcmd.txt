@@ -1,25 +1,31 @@
-Git Commands:
+GITHUB Commands:
 
 git config --global user.name "rodrigozuniga"
 git config --global user.email "rodrigozuniga@gmail.com"
+git config --global alias.br branch
 
 git clone https://github.com/rodrigozuniga/dev_basic.git
 git remote add origin url                                                       :adding remote with url does not give push rights
 git remote -v: show url for remote repository/branch
-git remote show origin                                                          : gives information about remote branch
+git remote show origin                                                          :gives information about remote branch
 
 git log --all
 git log --graph 
-git log --oneline -2: show only last two commits
+git log --oneline -2                                                            :show only last two commits
+
+git status
+git status -s                                                                   :short status
 
 git add . 
+git stage 
+git diff --staged                                                               :compare staged with previouly commited
+git diff head stagedFile
+git reset                                                                       :unstage files that were to be commited.
+
 git commit -am "memorandum"
 git commit --ammend -m 'ammended comment for last commit'                       :produces divergence with remote tree since github has old commit that we are ammending
 git commit --ammend --noedit                                                    :ammend with changed file, do not change message
 
-
-
-git status -s: short status
 git ls-tree branchname: list of files on branch
 git branch branchname: create branch branchname
 git diff master branchname
