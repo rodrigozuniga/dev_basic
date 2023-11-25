@@ -21,7 +21,7 @@ history 100: list last 100 commands
 ~/.zsh_history
 cat ~/.zsh_history|grep brew
 
-#CLI EDITING:
+#CLI EDITING: <> for cntl key
 <a> :start of line
 <e> :end of line
 <u> :delete line
@@ -69,22 +69,23 @@ find . 'trends*' -prune :avoid going into sub-directories files
 locate filename: requires to first create a database/table 
 
 #OPERATORS:
-cat <<< "hello there $x" :pass string but evaluates first
+cat <<< "hello there $x" :pass string but evaluates first. Only works with double quote.
 
 #WC:
 wc -lwc filename
-uniq diff1 :returns unique rows
-uniq -c diff1 :returns unique rows and count
+uniq diff1 :returns unique rows in file
+uniq -c diff1 :returns unique rows and row count in file 
 
 #LIST:
 ls -R :recursive to subdirectories
 ls -a
-ls -l
+ls -l: first letter of permission is file type
 ls -S :sort by size
 ls -t :sort by time modified
-ls -F :add / to files
+ls -F :add / to directories
 ls -C
 ls -G :color coded
+ls -d */
 
 #TYPE:
 echo ${(t)aa}
@@ -188,7 +189,7 @@ top -n 5: info in top 5 ps in cpu usage-n
 
 #CALCULATION:
 echo 6+7|bc
-expr 6 + 7
+expr 6 + 7 (need space between numbers and operator) 
 
 #WC:
 wc -lwc filename
