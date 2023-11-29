@@ -2,6 +2,13 @@
 SHELL COMMANDS:
 #!/bin/bash
 
+#OPERATORS:
+&   &&   (   )   ;   ;;   <newline>   |   ||
+( and ) are used to group commands and launch them in a subshell
+{ and } also group commands, but do not launch them in a subshell.
+& runs command in the background
+&& only runs second command if first runs successfuly
+
 #NETWORK:
 #get single file from github raw
 curl https://raw.githubusercontent.com/rodrigozuniga/firstRProject/origin/first_script.R >first_script.R
@@ -245,7 +252,9 @@ a=100.2345
 printf "%7.2f\n" $a
 printf "it is $a \n" : variable is replaced by its value
 printf "it is %s and %s %s \n" "777" "808" "for each one"
-
+#SED: multiple replacements
+  sed 's/0/7/gi; s/2/7/gi; s/6/7/gi; s/4/7/gi; s/3/7/gi' fileCols3        
+  sed -i 's/0/7/gi' : replace file on site       
 
 #DIFF:
 diff diff1 diff2
