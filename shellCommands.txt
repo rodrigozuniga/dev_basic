@@ -10,9 +10,11 @@ scp <file><user>@<host>:/remote/path
 
 arp -a : ip addresses on the network
 who
+uname -r: OS Linux version
+
 #HELP: - not always consistent -
 man ls
-ps --help
+ps --help #tend to be shorter
 
 #HISTORY:
 history 100: list last 100 commands
@@ -40,14 +42,14 @@ view menu:
 shift<d>
 
 #DIRECTORIES:
-cd -  :go back to previous directory
+cd -  :go back to previous directory, toggle
 mkdir -p dir/dir1/dir2/dir3
 rmdir :remove directory
 rm -r :recursive
 cp -Rv dir newdir :recursive and verbose
 chown user:group filename: change ownership
 chmod 777 filename
-du -h foldername
+du -h foldername : estimate folder disk space
 
 #PROCESS
 ps
@@ -70,6 +72,9 @@ locate filename: requires to first create a database/table
 
 #OPERATORS:
 cat <<< "hello there $x" :pass string but evaluates first. Only works with double quote.
+cat <<< "hello there 
+         this will pass 
+         multiple lines"
 
 #WC:
 wc -lwc filename
@@ -113,6 +118,8 @@ Hello () {
 }
 #to run function with variable:
 Hello Rodrigo
+#to see function:
+declare -f Hello
 
 
 #ARRAY:
@@ -135,6 +142,7 @@ echo ${(k)user}  : get keys
 echo ${(kv)user} : get keys and values 
 
 #DATETIME/UNIXDATETIME:
+cal 1967
 date +%T
 date +%Y
 date +%m
@@ -159,7 +167,7 @@ fi
 #RANGE or SEQUENCE
 seq 10
 
-#LOOP
+#LOOPS:
 for i in 'one','two','three','four'
 do
     echo $i
@@ -189,6 +197,7 @@ top -n 5: info in top 5 ps in cpu usage-n
 
 #CALCULATION:
 echo 6+7|bc
+echo 6/4|bc -l
 expr 6 + 7 (need space between numbers and operator) 
 
 #WC:
@@ -207,6 +216,10 @@ sort --field-separator="\t" cols --key=6|head
 brew install coreutils: shuf becomes gshuf
 gshuf -i 1-10: shuffle complete range
 gshuf -i 1-10 -n 1: shuffle but returns only one number
+#in Susse:
+ cat file1|shuf : shuffle lines
+ shuf -i 1-10 : shuffle range, one by line
+
 
 #SELECT COLUMNS:
 awk -F"  " '{print $3}' cols
@@ -230,14 +243,17 @@ printf "%7.3f\n" "213"
 printf "%7.3d\n" 213 112 123
 a=100.2345
 printf "%7.2f\n" $a
+printf "it is $a \n" : variable is replaced by its value
+printf "it is %s and %s %s \n" "777" "808" "for each one"
+
 
 #DIFF:
 diff diff1 diff2
 diff -u diff1 diff2
-diff -c diff1 diff2
+diff -c diff1 diff2 : put ! next to each line that is not included in the other file
 
 #FLOW:
-cat diff1|tee >(wc)|grep lin
+cat diff1|tee >(wc)|grep lin : pass flow to both wc and to grep
 
 #COMPRESSION:
 zip newfilename filename
