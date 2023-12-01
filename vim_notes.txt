@@ -1,7 +1,7 @@
 		      NVIM:
 esc ^	            : go to start of line
 esc A		    : go to end of line
-esc gm	            : go to middle of the screen line
+esc gm	            : go to middle of the full screen line
 esc gM              : go to moving to middle of the written line
 esc b		    : back word
 esc w		    : next word
