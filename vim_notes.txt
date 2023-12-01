@@ -16,7 +16,7 @@ esc u		    : undo
 esc <r>             : redo
 esc <v> + shift arrow + I + esc : enter visual mode and insert character
 esc a + tab         : list of commands starting with a
-15+G                : go to line 15
+15+G                : go to line 15, does not use :
 esc a+tab	    : list of commands starting with a
 esc T/M/B	    : go to top/middle/bottom of the screen
 esc gg/G	    : go to first/last line
