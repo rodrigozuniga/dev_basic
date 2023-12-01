@@ -5,6 +5,13 @@ esc gm	            : go to middle of the full screen line
 esc gM              : go to moving to middle of the written line
 esc b		    : back word
 esc w		    : next word
+esc yy		    : copy line
+esc 5yy		    : copy 5 lines
+esc yw		    : copy word following cursor
+esc y5w		    : copy 5 words following cursor
+esc P		    : paste line on current line (above?)
+esc p		    : paste line below
+esc 5p		    : paste line 5 times
 esc dw		    : cut word 	
 esc D/esc d$        : delete to end of line
 esc d^		    : delete to start of line
