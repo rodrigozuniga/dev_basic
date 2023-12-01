@@ -68,6 +68,10 @@ time ls -al: run and time process
 #check port association:
 lsof -i:8080
 
+#TIME:
+time ls -l
+time csvsql --query "select count(product_id) from transactions;" transactions.csv
+
 #FILE TYPE
 file filename
 
@@ -282,6 +286,16 @@ curl http://example.com --output my.file --silent
 visidata --delimiter=" " filename
 vd --delimiter=" " filename
 
+#JOIN:
+join -t ',' -1 1 -2 1 join1 join2  : inner join, only matches
+join -t ',' -a 1 -a 1 join1 join2 : full join
+
+#SORT:
+sort -r join1 : sort by first field 
+sort -R join1 : random shuffle but group by first field 
+sort -t ',' -k2 join1 : sort by second field (k2) and use , as delimiter
+sort -t ',' -k2 -u join1 : return only unique records
+
 #SQL
 brew install q
 q "select count(*) from cols"
@@ -296,6 +310,7 @@ q "select c4,count(*) over (partition by c4 order by c4) from cols"
  csvcut -c 1 transactions.csv|csvstat
  head transactions.csv|csvsort -c product_id -r
  head transactions.csv|csvgrep -c product_id -m 1222
+ csvsql --query "select count(*) from transactions;" transactions.csv
 
 #SQLITE:
 .open chinook.db
