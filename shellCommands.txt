@@ -233,6 +233,8 @@ awk -F"  " '{print $3}' cols
 awk '/rwxrwxrwx/ {print $1}' cols :select column 1 equal to rwxrwxrwx (awk options 'pattern {action}') 
 cut -d " " -f 1 cols		  :select field 1
 cut -c 1-11 cols 		  :select columns 1 to 11
+#Display by columns:
+column -st " " fileCols
 
 #SUM COLUMN:
 awk '{print $5}' cols|awk '{total=total+$1}END{print total}'
@@ -277,7 +279,8 @@ curl http://example.com --output my.file --silent
 
 
 #SPREADSHEET:
-visidata filename
+visidata --delimiter=" " filename
+vd --delimiter=" " filename
 
 #SQL
 brew install q
@@ -285,6 +288,14 @@ q "select count(*) from cols"
 q "select sum(c5) from cols"
 q "select c5,count(*) from cols where c5>10000 group by 1"
 q "select c4,count(*) over (partition by c4 order by c4) from cols"
+
+#CSVKIT:
+ sudo apt install csvkit
+ csvlook transactions.csv
+ csvcut -c 1,2,3 transactions.csv|head
+ csvcut -c 1 transactions.csv|csvstat
+ head transactions.csv|csvsort -c product_id -r
+ head transactions.csv|csvgrep -c product_id -m 1222
 
 #SQLITE:
 .open chinook.db
