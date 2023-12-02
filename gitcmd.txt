@@ -22,8 +22,8 @@ git log remotes/origin/main                                                     
 git status
 git status -s                                                                   :short status
 
-git add . 
-git stage 
+git add .									:add file to stage 
+git stage 									:stage file, same as add
 git diff --staged                                                               :compare staged with previouly commited
 git diff HEAD stagedFile                                                        :compare head with staged file
 git diff HEAD                                                                   :show all differences, staged or not
