@@ -3,14 +3,14 @@ GITHUB COMMANDS:
 git config --global user.name "rodrigozuniga"
 git config --global user.email "rodrigozuniga@gmail.com"
 git config --global alias.br branch
-git config --global alias.logall "log --all --graph"                            :for alias, options go inside quotes
+git config --global alias.logall "log --all --graph"                            :create command alias, options go inside quotes
 git config --get user.name
-git config -l                                                                   :list all values
+git config -l                                                                   :list all values, including command aliases, eg: git st
 
 git clone https://github.com/rodrigozuniga/dev_basic.git
 git remote add origin url                                                       :adding remote with url does not give push rights
 git remote remove origin                                                        :remove remote branch
-git remote -v: show url for remote repository/branch
+git remote -v                                                                   :show url for remote repository/branch
 git remote show origin                                                          :gives information about remote branch
 
 git log --all
@@ -24,31 +24,33 @@ git log remotes/origin/main                                                     
 git status
 git status -s                                                                   :short status
 
-git add .									:add file to stage 
-git stage 									:stage file, same as add
+git add .									                                                      :add file to stage 
+git stage 									                                                    :stage file, same as add
 git diff --staged                                                               :compare staged with previouly commited
 git diff HEAD stagedFile                                                        :compare head with staged file
 git diff HEAD                                                                   :show all differences, staged or not
 git reset                                                                       :unstage files that were to be commited.
 
-git commit -am "memorandum"
+git commit -am "memorandum"                                                     : requires double quote ""
 git commit --amend -m 'ammended comment for last commit'                        :produces divergence with remote tree since github has old commit that we are ammending
 git commit --amend --noedit                                                     :ammend with changed file, do not change message
 
 git push origin main --set-upstream                                             :match remote and local branch, after you can just use git push
+git branch -vv                                                                  :show relationship between local and remote branches 
 git push origin main -f                                                         :force and override remote branch
 git push -f 
 
 git fetch                                                                       :update local version of remote branches, but not any local branch
 
-git pull origin main                                                            :pull branch main in remote repository into local branch main
 git pull origin main --set up-stream                                            :set default for git pull, just as for git push, then just use git pull
+git pull origin main                                                            :pull branch main in remote repository into local branch main
 
 git merge feature1                                                              :merge is always on the current branch, on the checkout branch.
 git merge feature1 -m 'memorandum message'                                      :merge includes a commit so a memorandum message is required
 
-git ls-tree branchname                                                          : list of files on branch
-git branch branchname                                                           : create branch branchname
+git ls-tree branchname                                                          :list of files on branch
+git branch branchname                                                           :create branch branchname
+
 git diff main branchname
 git diff main remotes/origin/main                                               :difference with remote branch
 
@@ -59,9 +61,10 @@ git tag
 git push origin master --tags: push tags remotely
 git push -d origin featureX: push and delete branch
 git push --set-upstream origin featureX                                         :creates tracking branch
-git push 
+
 git show head
 git show main
+
 git checkout 606c6d6f: checkout a commit
 git checkout -b branchname: create & checkout branch
 git reflog branchname: show only unique commits to the branch
