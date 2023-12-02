@@ -3,7 +3,6 @@ GITHUB COMMANDS:
 git config --global user.name "rodrigozuniga"
 git config --global user.email "rodrigozuniga@gmail.com"
 git config --global alias.br branch
-<<<<<<< HEAD
 git config --global alias.logall "log --all --graph"                            :for alias, options go inside quotes
 git config --get user.name
 git config -l                                                                   :list all values
@@ -41,7 +40,7 @@ git push -f
 git fetch                                                                       :update local version of remote branches
 
 git pull origin main                                                            :pull branch main in remote repository into local branch main
-git pull origin main --set up-stream                                            :set default for git pull, just as for git push
+git pull origin main --set up-stream                                            :set default for git pull, just as for git push, then just use git pull
 
 git merge feature1                                                              :merge is always on the current branch, on the checkout branch.
 git merge feature1 -m 'memorandum message'                                      :merge includes a commit so a memorandum message is required
