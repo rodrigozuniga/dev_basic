@@ -17,7 +17,8 @@ git log --all
 git log --graph 
 git log --oneline -2                                                            :show only last two commits
 git log --all --graph --oneline
-git log --graph --oneline --all							:show graph for all branches
+git log --graph --oneline --all							                                    :show graph for all branches
+git log -p -2                                                                   :show log and differences for each commit
 
 git log remotes/origin/main                                                     :there might be differences in logs due to amends
 
@@ -48,8 +49,11 @@ git pull origin main                                                            
 
 git merge feature1                                                              :merge is always on the current branch, on the checkout branch.
 git merge feature1 -m "memorandum message"                                      :merge includes a commit so a memorandum message is required
+git branch -vv --merged                                                         :list of branches merged into the current branch
+git branch -d/-D branchname                                                     :delete merged, Delete unmerged branch. Force Delete can cause dangling commits.
 
 git branch branchname                                                           :create branch branchname
+git checkout -b branchname                                                      :create branch and checkout at the same time
 git ls-tree branchname                                                          :list of files on branch
 
 git diff main branchname                                                        :difference with local branch
