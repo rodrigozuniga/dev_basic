@@ -17,6 +17,8 @@ git log --all
 git log --graph 
 git log --oneline -2                                                            :show only last two commits
 git log --all --graph --oneline
+git log --graph --oneline --all							:show graph for all branches
+
 git log remotes/origin/main                                                     :there might be differences in logs due to amends
 
 git status
