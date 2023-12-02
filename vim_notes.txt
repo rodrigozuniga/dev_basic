@@ -19,6 +19,7 @@ esc 5dd	            : delete 5 lines
 esc 5d              : cut 5 lines
 esc d}		    : delete entire block
 esc dap		    : delete paragraph
+esc <q> /esc <v>    : enter visual block mode to delete column(s)
 esc u		    : undo
 esc <r>             : redo
 esc <v> + shift arrow + I + esc : enter visual mode and insert character
@@ -43,15 +44,15 @@ set nonumber	    : unset line numbers
 set spell spelllang = en_us: set spelling corrector to english 
 set ignorecase	    :ignore case
 
-esc: help number    : get help on number or other
+esc: help number         : get help on number or other
 esc: left/center/right 40: format text as left/center/right 
-esc: %s/word1/word2/g: replace in entire document(%) all occurrences of word1 by word2
-esc:colorscheme +tab: popup menu with color scheme values
-<n>,<p>		    : go up and down on displayed menu with alternative values
-esc:ab xxx text	    : create abbreviation, type abbreviation and esc to get full text
-esc:una xxx   	    : remove abbreviation
-esc:iabbrev adn and : autocorrect from adn to and
-esc:iabbrev s/ select: abbreviation for select
+esc: %s/word1/word2/g    : replace in entire document(%) all occurrences of word1 by word2
+esc:colorscheme +tab     : popup menu with color scheme values
+<n>,<p>		         : go up and down on displayed menu with alternative values
+esc:ab xxx text	         : create abbreviation, -->type abbreviation and esc to display full text<--
+esc:una xxx   	         : remove abbreviation
+esc:iabbrev adn and      : autocorrect from adn to and
+esc:iabbrev s/ select    : abbreviation for select
 
 esc/txt + rtrn	:search/highlight txt
 n/N             :find the next/previous occurrence
