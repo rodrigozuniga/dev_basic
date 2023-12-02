@@ -23,6 +23,7 @@ git log remotes/origin/main                                                     
 
 git status
 git status -s                                                                   :short status
+git status -b --show-stash                                                      :show if branch is behind remote equivalent branch
 
 git add .									                                                      :add file to stage 
 git stage 									                                                    :stage file, same as add
@@ -46,12 +47,12 @@ git pull origin main --set up-stream                                            
 git pull origin main                                                            :pull branch main in remote repository into local branch main
 
 git merge feature1                                                              :merge is always on the current branch, on the checkout branch.
-git merge feature1 -m 'memorandum message'                                      :merge includes a commit so a memorandum message is required
+git merge feature1 -m "memorandum message"                                      :merge includes a commit so a memorandum message is required
 
-git ls-tree branchname                                                          :list of files on branch
 git branch branchname                                                           :create branch branchname
+git ls-tree branchname                                                          :list of files on branch
 
-git diff main branchname
+git diff main branchname                                                        :difference with local branch
 git diff main remotes/origin/main                                               :difference with remote branch
 
 git tag tagname  606c6d6f
@@ -65,13 +66,13 @@ git push --set-upstream origin featureX                                         
 git show head
 git show main
 
-git checkout 606c6d6f: checkout a commit
-git checkout -b branchname: create & checkout branch
-git reflog branchname: show only unique commits to the branch
-git branch -d/-D branchname: delete,force Delete branch. Force Delete can cause dangling commits.
-git merge --no-ff featureX: force creation of merge rather that fast fwd merge to have all history.
-git merge --squash branchname: squash commits in branch to a single one.
-git rebase -i b4c84773 : interactive rebase
+git checkout 606c6d6f                                                          :checkout a commit
+git checkout -b branchname                                                     :create & checkout branch
+git reflog branchname                                                          :show only unique commits to the branch
+git branch -d/-D branchname                                                    :delete,force Delete branch. Force Delete can cause dangling commits.
+git merge --no-ff featureX                                                     :force creation of merge rather that fast fwd merge to have all history.
+git merge --squash branchname                                                  :squash commits in branch to a single one.
+git rebase -i b4c84773                                                         :interactive rebase
 NETWORK COMMANDS: Clone,Fetch,Pull,Push
 git merge fetch_head 
 
