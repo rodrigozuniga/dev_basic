@@ -3,6 +3,8 @@ GITHUB Commands:
 git config --global user.name "rodrigozuniga"
 git config --global user.email "rodrigozuniga@gmail.com"
 git config --global alias.br branch
+git config --get user.name
+git config -l                                                                   :list all values
 
 git clone https://github.com/rodrigozuniga/dev_basic.git
 git remote add origin url                                                       :adding remote with url does not give push rights
@@ -39,7 +41,7 @@ git push -d origin featureX: push and delete branch
 git push --set-upstream origin featureX                                         :creates tracking branch
 git push 
 git show head
-git show master
+git show main
 git checkout 606c6d6f: checkout a commit
 git checkout -b branchname: create & checkout branch
 git reflog branchname: show only unique commits to the branch
