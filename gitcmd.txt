@@ -22,8 +22,8 @@ git log remotes/origin/main                                                     
 git status
 git status -s                                                                   :short status
 
-git add .									:add file to stage 
-git stage 									:stage file, same as add
+git add .									                                                      :add file to stage 
+git stage 									                                                    :stage file, same as add
 git diff --staged                                                               :compare staged with previouly commited
 git diff HEAD stagedFile                                                        :compare head with staged file
 git diff HEAD                                                                   :show all differences, staged or not
@@ -39,8 +39,8 @@ git push -f
 
 git fetch                                                                       :update local version of remote branches, but not any local branch
 
-git pull origin main                                                            :pull branch main in remote repository into local branch main
 git pull origin main --set up-stream                                            :set default for git pull, just as for git push, then just use git pull
+git pull origin main                                                            :pull branch main in remote repository into local branch main
 
 git merge feature1                                                              :merge is always on the current branch, on the checkout branch.
 git merge feature1 -m 'memorandum message'                                      :merge includes a commit so a memorandum message is required
@@ -57,9 +57,10 @@ git tag
 git push origin master --tags: push tags remotely
 git push -d origin featureX: push and delete branch
 git push --set-upstream origin featureX                                         :creates tracking branch
-git push 
+
 git show head
 git show main
+
 git checkout 606c6d6f: checkout a commit
 git checkout -b branchname: create & checkout branch
 git reflog branchname: show only unique commits to the branch
