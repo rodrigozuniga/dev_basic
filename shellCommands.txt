@@ -61,6 +61,7 @@ lsof -i:8080
 
 #FILE TYPE
 file filename
+open . :open file manager, 'start .' in windows
 
 #FIND:
 find -H trends*
