@@ -1,10 +1,17 @@
-		      NVIM:
+:wq		      NVIM:
 esc ^	            : go to start of line
 esc A		    : go to end of line
-esc gm	            : go to middle of the screen line
+esc gm	            : go to middle of the full screen line
 esc gM              : go to moving to middle of the written line
 esc b		    : back word
 esc w		    : next word
+esc yy		    : copy line
+esc 5yy		    : copy 5 lines
+esc yw		    : copy word following cursor
+esc y5w		    : copy 5 words following cursor
+esc P		    : paste line on current line (above?)
+esc p		    : paste line below
+esc 5p		    : paste line 5 times
 esc dw		    : cut word 	
 esc D/esc d$        : delete to end of line
 esc d^		    : delete to start of line
@@ -12,11 +19,12 @@ esc 5dd	            : delete 5 lines
 esc 5d              : cut 5 lines
 esc d}		    : delete entire block
 esc dap		    : delete paragraph
+esc <q> /esc <v>    : enter visual block mode to delete column(s)
 esc u		    : undo
 esc <r>             : redo
 esc <v> + shift arrow + I + esc : enter visual mode and insert character
 esc a + tab         : list of commands starting with a
-15+G                : go to line 15
+15+G                : go to line 15, does not use :
 esc a+tab	    : list of commands starting with a
 esc T/M/B	    : go to top/middle/bottom of the screen
 esc gg/G	    : go to first/last line
@@ -34,26 +42,26 @@ set mouse=a         : enable mouse click
 set number          : number lines
 set nonumber	    : unset line numbers
 set spell spelllang = en_us: set spelling corrector to english 
-set ignorecase	    :ignore case
+set ignorecase	    : ignore case
 
-esc: help number    : get help on number or other
+esc: help number         : get help on number or other
 esc: left/center/right 40: format text as left/center/right 
-esc: %s/word1/word2/g: replace in entire document(%) all occurrences of word1 by word2
-esc:colorscheme +tab: popup menu with color scheme values
-<n>,<p>		    : go up and down on displayed menu with alternative values
-esc:ab xxx text	    : create abbreviation, type abbreviation and esc to get full text
-esc:una xxx   	    : remove abbreviation
-esc:iabbrev adn and : autocorrect from adn to and
-esc:iabbrev s/ select: abbreviation for select
+esc: %s/word1/word2/g    : replace in entire document(%) all occurrences of word1 by word2
+esc:colorscheme +tab     : popup menu with color scheme values
+<n>,<p>		         : go up and down on displayed menu with alternative values
+esc:ab xxx text	         : create abbreviation, -->type abbreviation and esc to display full text<--
+esc:una xxx   	         : remove abbreviation
+esc:iabbrev adn and      : autocorrect from adn to and
+esc:iabbrev s/ select    : abbreviation for select
 
-esc/txt + rtrn	:search/highlight txt
-n/N             :find the next/previous occurrence
+esc/txt + rtrn	         :search/highlight txt
+n/N                      :find the next/previous occurrence
 
-diffput             : apply difference to other window
-diffget             : apply difference from other window
-[c,]c               : jump to next/previous difference
+diffput                  : apply difference to other window
+diffget                  : apply difference from other window
+[c,]c                    : jump to next/previous difference
 
-:!./%               : run current vim content
-row_select w !bash  : run selection
-esc v row_select w !bash: run selection
+:!./%                    : run current vim content
+row_select w !bash       : run selection
+esc v row_select w !bash : run selection
 
